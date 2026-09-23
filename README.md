@@ -57,6 +57,21 @@ exists, tpm sets `TMUX_PLUGIN_MANAGER_PATH` to `~/.config/tmux/plugins/`
 and installs the plugins *there*. Both directories are required; neither
 is redundant.
 
+## Neovim treesitter parsers
+
+Parsers are compiled artifacts under `~/.local/share/nvim/`, not config, so
+they are not in this repo. They must match the queries nvim-treesitter ships
+or the FileType autocmd chain throws and **LSP silently stops attaching** for
+that filetype. After a fresh install, or if a language loses its LSP:
+
+```vim
+:TSUpdateSync
+```
+
+Note nvim-treesitter's `master` branch is archived upstream (the pin in
+`lazy-lock.json` is its final commit). Moving to the `main` branch is a
+separate migration with a different setup API.
+
 ## Packages (Homebrew)
 
 ```sh
