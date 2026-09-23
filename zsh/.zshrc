@@ -117,6 +117,10 @@ alias vim="nvim"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="$HOME/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
 # Version manager - replaces nvm and pyenv.
 # Existing .nvmrc / .python-version files (including nvm LTS codenames
 # like lts/hydrogen) still work via idiomatic_version_file_enable_tools
@@ -135,6 +139,3 @@ export SDKMAN_DIR="$HOME/.sdkman"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terragrunt terragrunt
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="$HOME/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
