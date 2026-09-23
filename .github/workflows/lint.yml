@@ -1,0 +1,47 @@
+name: lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  shell:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: shellcheck scripts
+        run: shellcheck install.sh macos/defaults.sh
+
+      - name: syntax-check shell configs
+        run: |
+          for f in bash/.bashrc bash/.bash_profile bash/.profile; do
+            bash -n "$f" && echo "ok  $f"
+          done
+          sudo apt-get update -qq && sudo apt-get install -y -qq zsh
+          for f in zsh/.zshrc zsh/.zshenv; do
+            zsh -n "$f" && echo "ok  $f"
+          done
+
+      - name: validate config files
+        run: |
+          python3 -c "import tomllib; tomllib.load(open('alacritty/.config/alacritty/alacritty.toml','rb'))" \
+            && echo "ok  alacritty.toml"
+          python3 -c "import tomllib; tomllib.load(open('mise/.config/mise/config.toml','rb'))" \
+            && echo "ok  mise config.toml"
+          python3 -c "import json; json.load(open('nvim/.config/nvim/lazy-lock.json'))" \
+            && echo "ok  lazy-lock.json"
+          # zed's settings.json is JSONC - strip // comments before parsing
+          python3 -c "import json,re,pathlib; \
+            t=pathlib.Path('zed/.config/zed/settings.json').read_text(); \
+            json.loads(re.sub(r'^\s*//.*$','',t,flags=re.M))" \
+            && echo "ok  zed settings.json (jsonc)"
+
+      - name: no secrets or absolute home paths
+        run: |
+          ! grep -rIn '/Users/[a-z]' --exclude-dir=.git --exclude-dir=.github . \
+            || { echo "found hardcoded home path"; exit 1; }
+          ! grep -rIlE 'BEGIN (RSA|OPENSSH|EC) PRIVATE KEY|ghp_|github_pat_' \
+            --exclude-dir=.git --exclude-dir=.github . \
+            || { echo "found probable secret"; exit 1; }
