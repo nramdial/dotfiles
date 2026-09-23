@@ -1,7 +1,11 @@
-# Brewfile - regenerate with: brew bundle dump --force
-# Generated 2026-09-22 from install receipts
+# Regenerate: brew bundle dump --force --file=~/dotfiles/Brewfile
+#
+# NOTE: 'brew bundle dump' silently omits formulae from untrusted taps
+# (Homebrew 6.0 tap trust). The 'trusted: true' entries below are real
+# installs that a plain dump drops - re-check them after regenerating.
+# Last verified 2026-09-22
 
-tap "asmvik/formulae"
+tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git"
 tap "chipmk/tap"
 tap "databricks/tap"
 tap "derailed/k9s"
@@ -13,27 +17,27 @@ tap "homebrew/services"
 tap "koekeishiya/formulae"
 tap "loft-sh/tap"
 tap "romkatv/powerlevel10k"
-tap "siderolabs/tap"
+tap "siderolabs/tap", trusted: true
 
 brew "actionlint"
 brew "age"
 brew "colima"
-brew "databricks/tap/databricks"
+brew "databricks/tap/databricks", trusted: true
 brew "dnsmasq"
-brew "chipmk/tap/docker-mac-net-connect"
+brew "chipmk/tap/docker-mac-net-connect", trusted: true
 brew "fd"
-brew "fluxcd/tap/flux"
+brew "fluxcd/tap/flux", trusted: true
 brew "gh"
 brew "git"
 brew "gnupg"
-brew "go-task/tap/go-task"
+brew "go-task"
 brew "helix"
 brew "helm"
 brew "htop"
 brew "iperf3"
 brew "jq"
 brew "k3d"
-brew "derailed/k9s/k9s"
+brew "derailed/k9s/k9s", trusted: true
 brew "kompose"
 brew "kubeconform"
 brew "kubeseal"
@@ -47,18 +51,17 @@ brew "neofetch"
 brew "neovim"
 brew "nmap"
 brew "opentofu"
-brew "pkgconf"
 brew "postgresql@14"
 brew "powerlevel10k"
 brew "pyenv"
 brew "ripgrep"
-brew "koekeishiya/formulae/skhd"
+brew "koekeishiya/formulae/skhd", trusted: true
 brew "socat"
 brew "sops"
 brew "sqlite-utils"
 brew "talhelper"
 brew "siderolabs/tap/talosctl"
-brew "hashicorp/tap/terraform"
+brew "hashicorp/tap/terraform", trusted: true
 brew "terragrunt"
 brew "tfenv"
 brew "tflint"
@@ -66,15 +69,15 @@ brew "tmux"
 brew "tree"
 brew "trivy"
 brew "trufflehog"
-brew "loft-sh/tap/vcluster"
+brew "loft-sh/tap/vcluster", trusted: true
 brew "velero"
 brew "watch"
 brew "watchman"
 brew "wget"
-brew "koekeishiya/formulae/yabai"
+brew "koekeishiya/formulae/yabai", trusted: true
 brew "yamllint"
 brew "yq"
 
-cask "flate"
+cask "home-operations/tap/flate", trusted: true
 cask "headlamp"
 cask "multipass"
