@@ -1,0 +1,12 @@
+# mise - replaces nvm and pyenv (see zsh/.zshrc)
+#
+# Idiomatic version files are opt-in in modern mise. Enabling them for node
+# and python means existing .nvmrc and .python-version files keep working,
+# including nvm's LTS codenames (lts/gallium, lts/hydrogen, lts/iron).
+
+[settings]
+idiomatic_version_file_enable_tools = ["node", "python"]
+
+[tools]
+node = "24"
+python = "3.12"
