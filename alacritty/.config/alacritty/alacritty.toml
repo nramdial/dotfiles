@@ -1,0 +1,25 @@
+# Alacritty 0.13+ reads this file; 0.12.x reads alacritty.yml instead.
+# Both are kept until this machine is on 0.13+, since 0.12 cannot parse TOML.
+
+[window]
+opacity = 0.85
+decorations = "None"
+
+[font]
+size = 16
+
+[font.normal]
+family = "Mononoki Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "Mononoki Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "Mononoki Nerd Font"
+style = "Italic"
+
+[font.bold_italic]
+family = "Mononoki Nerd Font"
+style = "Bold Italic"
