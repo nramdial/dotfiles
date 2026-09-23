@@ -1,8 +1,8 @@
 # Regenerate: brew bundle dump --force --file=~/dotfiles/Brewfile
 #
-# NOTE: 'brew bundle dump' silently omits formulae from untrusted taps
-# (Homebrew 6.0 tap trust). The 'trusted: true' entries below are real
-# installs that a plain dump drops - re-check them after regenerating.
+# NOTE: `brew bundle dump` silently omits formulae from untrusted taps
+# (Homebrew 6.0 tap trust). The `trusted: true` entries below are real
+# installs a plain dump drops - re-check them after regenerating.
 # Last verified 2026-09-22
 
 tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git"
@@ -21,7 +21,6 @@ tap "siderolabs/tap", trusted: true
 
 brew "actionlint"
 brew "age"
-brew "colima"
 brew "databricks/tap/databricks", trusted: true
 brew "dnsmasq"
 brew "chipmk/tap/docker-mac-net-connect", trusted: true
@@ -61,9 +60,7 @@ brew "sops"
 brew "sqlite-utils"
 brew "talhelper"
 brew "siderolabs/tap/talosctl"
-brew "hashicorp/tap/terraform", trusted: true
 brew "terragrunt"
-brew "tfenv"
 brew "tflint"
 brew "tmux"
 brew "tree"
