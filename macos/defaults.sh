@@ -19,14 +19,19 @@ changed=0 same=0
 
 set_default() {
   local domain="$1" key="$2" type="$3" want="$4"
-  local cur
+  local cur write_val="$want"
+  # `defaults read` prints bools as 0/1, but `defaults write -bool` only
+  # accepts true/false/yes/no - so compare on 0/1 and write true/false.
+  if [[ "$type" == "bool" ]]; then
+    case "$want" in 1|true|yes) want=1; write_val=true;; *) want=0; write_val=false;; esac
+  fi
   cur="$(defaults read "$domain" "$key" 2>/dev/null || echo "<unset>")"
   if [[ "$cur" == "$want" ]]; then
     printf '  %-28s %s (unchanged)\n' "$key" "$cur"; same=$((same+1)); return
   fi
   printf '  %-28s %s -> %s\n' "$key" "$cur" "$want"
   changed=$((changed+1))
-  [[ -n "$DRY_RUN" ]] || defaults write "$domain" "$key" "-$type" "$want"
+  [[ -n "$DRY_RUN" ]] || defaults write "$domain" "$key" "-$type" "$write_val"
 }
 
 echo "Keyboard"
