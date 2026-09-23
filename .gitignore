@@ -1,0 +1,41 @@
+# ---------------------------------------------------------------------------
+# This repo is PUBLIC. Deny-by-default for anything secret-bearing.
+# Layout is stow-style (<package>/<path relative to $HOME>), so .config paths
+# are matched with **/ rather than anchored at the repo root.
+# ---------------------------------------------------------------------------
+
+# SSH — deliberately never tracked (keys, and homelab topology in config)
+.ssh/
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+
+# Credentials / tokens
+**/.config/gh/hosts.yml
+.databrickscfg*
+.netrc
+*.kubeconfig
+kubeconfig
+talosconfig
+**/.config/bws/
+*_token
+*.secret
+
+# Machine state, caches, vendored deps — not config
+**/.config/tfenv/
+**/.config/yarn/
+**/.config/configstore/
+**/.config/uv/
+**/.config/mlflow/
+**/.config/texstudio/
+**/.config/tmux/plugins/
+**/.config/zed/embeddings/
+**/.config/zed/conversations/
+
+# OS / editor noise
+.DS_Store
+*.swp
+*~
+*.bak
+*.log
