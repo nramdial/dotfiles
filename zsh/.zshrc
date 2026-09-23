@@ -109,11 +109,10 @@ unalias gsd  # gsd is the GSD CLI tool, not git svn dcommit
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 # source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
-source /Users/nathanramdial/.oh-my-zsh/custom/themes/powerlevel10k
+# (removed: sourced a directory, silent no-op - ZSH_THEME loads p10k)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
