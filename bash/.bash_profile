@@ -6,5 +6,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 complete -C /opt/homebrew/bin/terragrunt terragrunt
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/nathanramdial/.rd/bin:$PATH"
+export PATH="$HOME/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
