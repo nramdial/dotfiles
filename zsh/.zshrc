@@ -79,6 +79,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git brew zsh-autosuggestions zsh-syntax-highlighting)
 
+# Docker CLI completions - must precede oh-my-zsh, which runs compinit.
+fpath=($HOME/.docker/completions $fpath)
+
 source $ZSH/oh-my-zsh.sh
 unalias gsd  # gsd is the GSD CLI tool, not git svn dcommit
 
@@ -157,13 +160,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terragrunt terragrunt
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/nathanramdial/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/nathanramdial/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-export TALOSCONFIG=~/homelab/talos/talosconfig
