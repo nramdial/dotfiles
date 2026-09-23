@@ -40,6 +40,23 @@ With stow installed, `stow -t ~ nvim tmux zsh` does the same thing.
 | `neofetch`  | neofetch config                         |
 | `wm`        | yabai + skhd                            |
 
+## tmux plugins
+
+Plugins are managed by [tpm][tpm], which is not vendored here. Bootstrap it
+once on a new machine:
+
+```sh
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+Then start tmux and press `prefix + I` (prefix is `C-a`) to install.
+
+Note the split: tpm's own script must live at `~/.tmux/plugins/tpm/tpm`,
+which is what `tmux.conf` runs. But because `~/.config/tmux/tmux.conf`
+exists, tpm sets `TMUX_PLUGIN_MANAGER_PATH` to `~/.config/tmux/plugins/`
+and installs the plugins *there*. Both directories are required; neither
+is redundant.
+
 ## Packages (Homebrew)
 
 ```sh
@@ -61,3 +78,4 @@ restored by hand on a new machine:
 See `.gitignore` for the full deny list.
 
 [stow]: https://www.gnu.org/software/stow/
+[tpm]: https://github.com/tmux-plugins/tpm
