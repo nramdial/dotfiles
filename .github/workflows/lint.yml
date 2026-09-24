@@ -37,6 +37,10 @@ jobs:
             t=pathlib.Path('zed/.config/zed/settings.json').read_text(); \
             json.loads(re.sub(r'^\s*//.*$','',t,flags=re.M))" \
             && echo "ok  zed settings.json (jsonc)"
+          python3 -c "import json,re,pathlib; \
+            t=pathlib.Path('fastfetch/.config/fastfetch/config.jsonc').read_text(); \
+            json.loads(re.sub(r'^\s*//.*$','',t,flags=re.M))" \
+            && echo "ok  fastfetch config.jsonc"
 
       - name: no secrets or absolute home paths
         run: |

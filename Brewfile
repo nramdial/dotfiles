@@ -14,7 +14,6 @@ tap "go-task/tap"
 tap "hashicorp/tap"
 tap "home-operations/tap"
 tap "homebrew/services"
-tap "koekeishiya/formulae"
 tap "loft-sh/tap"
 tap "romkatv/powerlevel10k"
 tap "siderolabs/tap", trusted: true
@@ -24,6 +23,7 @@ brew "age"
 brew "databricks/tap/databricks", trusted: true
 brew "dnsmasq"
 brew "chipmk/tap/docker-mac-net-connect", trusted: true
+brew "fastfetch"
 brew "fd"
 brew "fluxcd/tap/flux", trusted: true
 brew "gh"
@@ -45,15 +45,13 @@ brew "luarocks"
 brew "minikube"
 brew "mise"
 brew "mysql-client"
-brew "neofetch"
 brew "neovim"
 brew "nmap"
 brew "opentofu"
 brew "postgresql@14"
 brew "powerlevel10k"
-brew "pyenv"
 brew "ripgrep"
-brew "koekeishiya/formulae/skhd", trusted: true
+brew "asmvik/formulae/skhd", trusted: true
 brew "socat"
 brew "sops"
 brew "sqlite-utils"
@@ -70,7 +68,7 @@ brew "velero"
 brew "watch"
 brew "watchman"
 brew "wget"
-brew "koekeishiya/formulae/yabai", trusted: true
+brew "asmvik/formulae/yabai", trusted: true
 brew "yamllint"
 brew "yq"
 

@@ -37,7 +37,7 @@ With stow installed, `stow -t ~ nvim tmux zsh` does the same thing.
 | `sops`      | SOPS age recipient (public key)         |
 | `zed`       | Zed editor settings                     |
 | `gh`        | GitHub CLI config (no credentials)      |
-| `neofetch`  | neofetch config                         |
+| `fastfetch` | fastfetch config                        |
 | `wm`        | yabai + skhd                            |
 
 ## tmux plugins
